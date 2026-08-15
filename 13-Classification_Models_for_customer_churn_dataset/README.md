@@ -1,68 +1,55 @@
 # Customer Churn Prediction
 
-A machine learning project for predicting customer churn using classification algorithms.
+## Projenin Amacı
 
-## Overview
+Bu projenin amacı, müşteri verilerini kullanarak müşterilerin aboneliklerini sonlandırıp sonlandırmayacağını tahmin eden bir makine öğrenmesi modeli geliştirmektir.
 
-This project analyzes customer data and builds machine learning models to predict whether a customer will churn.
+Proje kapsamında veri ön işleme, kategorik değişkenlerin dönüştürülmesi, veri ölçeklendirme, farklı sınıflandırma modellerinin eğitilmesi ve model performanslarının karşılaştırılması gerçekleştirilmiştir.
 
-The workflow includes:
+## Veri Seti
 
-- Data preprocessing and exploration
-- Categorical variable encoding
-- Feature scaling
-- Train / validation / test split
-- Classification model training
-- Hyperparameter optimization
-- Model evaluation
+Projede müşteri davranışlarını içeren bir **Customer Churn** veri seti kullanılmıştır.
 
-## Models
+Veri seti **64.374 satır ve 12 sütundan** oluşmaktadır. Hedef değişken `Churn` sütunudur.
 
-- Logistic Regression
-- K-Nearest Neighbors (KNN)
-- Decision Tree
+Veri setinde müşterilerin yaşı, kullanım sıklığı, destek çağrıları, ödeme gecikmeleri, abonelik türü, sözleşme süresi ve toplam harcama gibi bilgiler bulunmaktadır.
 
-Hyperparameter tuning was performed using `GridSearchCV` with 5-fold cross-validation.
+Veri ön işleme aşamasında kategorik değişkenler sayısal forma dönüştürülmüş, sayısal değişkenler ise gerekli modeller için ölçeklendirilmiştir.
 
-## Technologies
+## Nasıl Çalıştırılır?
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
-
-## Results
-
-KNN achieved the best validation performance after hyperparameter tuning.
-
-**Best KNN parameters:**
-
-```text
-n_neighbors: 15
-weights: distance
-metric: manhattan
-```
-
-**Validation F1-score:** `0.93`
-
-## Project Structure
-
-```text
-├── Final_odevi.ipynb
-├── customer_churn_dataset-testing-master.csv
-├── requirements.txt
-└── README.md
-```
-
-## Installation
+Öncelikle gerekli Python kütüphaneleri yüklenmelidir:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
+Daha sonra:
 
-Open `Final_odevi.ipynb` with Jupyter Notebook or VS Code and run the cells sequentially.
+1. `Final_odevi.ipynb` dosyasını Jupyter Notebook veya VS Code ile açın.
+2. Gerekli veri dosyasının repository içerisinde bulunduğundan emin olun.
+3. Notebook içerisindeki hücreleri sırasıyla çalıştırın.
+
+## Kullanılan Modeller
+
+- Logistic Regression
+- K-Nearest Neighbors (KNN)
+- Decision Tree
+
+Modellerin performanslarını geliştirmek için `GridSearchCV` kullanılarak hiperparametre optimizasyonu yapılmıştır.
+
+## Sonuç
+
+Model değerlendirmeleri sonucunda **KNN modeli** başarılı bir performans göstermiştir.
+
+En iyi KNN parametreleri:
+
+```text
+n_neighbors = 15
+weights = distance
+metric = manhattan
+```
+
+Optimize edilmiş KNN modeli validation verisinde yaklaşık **0.93 F1-score** elde etmiştir.
+
+Bu sonuç, KNN modelinin müşteri churn tahmininde başarılı bir sınıflandırma performansı gösterdiğini ortaya koymaktadır.
